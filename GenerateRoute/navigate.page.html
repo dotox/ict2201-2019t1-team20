@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Navigate</ion-title><ion-button color="tertiary" size="small" slot ="end" class="SavedRoutebutton">Saved Route</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="directionForm" (ngSubmit)="generateRoute(directionForm.value)">
+    <ion-item>
+      <ion-label position="stacked">Start</ion-label>
+        <ion-searchbar formControlName ="source" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Start"></ion-searchbar>
+      </ion-item>
+      <ion-list [hidden]="autocompleteItems.length == 0">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+          {{ item.description }}
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label position="stacked">Destination</ion-label>
+        <ion-searchbar formControlName ="destination" [(ngModel)]="autocomplete.input2" (ionInput)="updateSearchResults2()" placeholder="destination"></ion-searchbar>
+      </ion-item>
+      <ion-list [hidden]="autocompleteItems2.length == 0">
+        <ion-item *ngFor="let item of autocompleteItems2" tappable (click)="selectSearchResult2(item)">
+          {{ item.description }}
+        </ion-item>
+      </ion-list>
+
+    <ion-button expand="full" color="success" shape="round" type="submit" [disabled]="directionForm.invalid">Get Direction</ion-button>
+
+
+
+
+  </form>
+  <ion-card>
+		<ion-card-content>
+			<div #directionsPanel class="direction"></div>
+		</ion-card-content>
+	</ion-card>
+  <div #mapElement class="map"></div>
+</ion-content>

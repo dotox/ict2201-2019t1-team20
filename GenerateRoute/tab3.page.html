@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Direction</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form [formGroup]="directionForm" (ngSubmit)="generateRoute(directionForm.value)">
+    <ion-item>
+      <ion-label position="floating">Start</ion-label><ion-button  color="tertiary" size="small" slot ="end" class="SavedRoutebutton">Saved Route</ion-button>
+      <ion-input formControlName="source"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Destination</ion-label>
+      <ion-input formControlName="destination"></ion-input>
+    </ion-item>
+    <ion-button expand="full" color="success" shape="round" type="submit" [disabled]="directionForm.invalid">Get Direction</ion-button>
+
+
+
+
+  </form>
+
+  <div #mapElement class="map"></div>
+</ion-content>
