@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab Two
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+  <ion-item>
+      <ion-label>Edit Profile</ion-label><ion-toggle  color="success" (ionChange)="editProfile()" [(ngModel)]="editprofile" ></ion-toggle>
+  </ion-item>
+  <ion-item>
+  <ion-row class="avatarimage">
+    <ion-col class=Imageleft>
+        <ion-avatar class="profileimage">
+          <img src="https://www.w3schools.com/howto/img_avatar.png">
+        </ion-avatar>
+    </ion-col>
+  </ion-row>
+  </ion-item>
+
+
+  <ion-row class="DetailsRow1">
+    <ion-col>
+      <ion-label>UserID:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label id="UserIDText">001</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow2">
+    <ion-col>
+      <ion-label>First Name:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label id="FirstNameText">First Name</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow1">
+    <ion-col>
+      <ion-label>Last Name:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label id="LastNameText">Last Name</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow2">
+    <ion-col>
+      <ion-label>Age:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label  id="AgeText">21</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow1">
+    <ion-col>
+      <ion-label>Gender:</ion-label>
+    </ion-col>
+    <ion-col>
+      <ion-label  id="GenderText">Male</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow2">
+    <ion-col>
+      <ion-label>Phone:</ion-label>
+      <ion-input type="text" maxlength="8" [(ngModel)]="phoneno" [disabled]="isDisabled"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow1">
+    <ion-col>
+      <ion-label>  Email:</ion-label>
+      <ion-input type="email" [(ngModel)]="emailadd"  [disabled]="isDisabled"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="DetailsRow2">
+    <ion-col>
+      <ion-list margin=5px>
+        <ion-item>
+          <ion-label>Commute Method:</ion-label>
+            <ion-icon id="CMicon" ios="ios-walk" md="md-walk"></ion-icon>
+          <ion-select [(ngModel)]="commutem" [disabled]="isDisabled">
+            <ion-select-option value="CMWalking" selected>Walking</ion-select-option>
+            <ion-select-option value="CMDisability">Disability</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-list>
+</ion-content>

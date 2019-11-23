@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+        <div align="center">
+          <h1><strong>Safety </strong></h1>
+            <ionic4-star-rating #rating
+                activeColor = "#ff0000"
+                defaultColor = "#aaaaaa"
+                readonly = "false"
+                fontSize ="40px"
+                (ratingChanged)="logRatingChange($event)"
+                [(ngModel)]="safety">
+            </ionic4-star-rating>
+        </div>
+
+        <div align="center">
+          <h1><strong>Speed</strong></h1>
+            <ionic4-star-rating #rating2
+                activeColor = "#35B100"
+                defaultColor = "#aaaaaa"
+                readonly = "false"
+                fontSize ="40px"
+                (ratingChanged)="logRatingChange2($event)"
+                [(ngModel)]="speed">
+            </ionic4-star-rating>
+        </div>
+
+        <div align="center">
+          <h1><strong>Enjoyment</strong></h1>
+            <ionic4-star-rating #rating2
+                activeColor = "#3500F5"
+                defaultColor = "#aaaaaa"
+                readonly = "false"
+                fontSize ="40px"
+                (ratingChanged)="logRatingChange3($event)"
+                [(ngModel)]="enjoyment">
+            </ionic4-star-rating>
+        </div>
+
+        <ion-item>
+          <ion-label align="center" position="stacked" class="commentsLabel"><strong>Comments</strong></ion-label>
+          <ion-textarea rows="12" cols="20" placeholder="I really enjoyed the generated route!" [(ngModel)]="comment"></ion-textarea>
+        </ion-item>
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="submitRating()" expand="block" [disabled]="!safety || !speed || !enjoyment">
+           Submit feedback
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+
+</ion-content>

@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar color='light'>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content >
+    <app-logo></app-logo>
+  <!---  <ion-list>
+      <ion-row>
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon item-left name="person" color="secondary"></ion-icon>
+            <ion-input type="text" placeholder="First Name"  [(ngModel)]="fname"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon item-left name="person" color="secondary"></ion-icon>
+            <ion-input type="text" placeholder="Last Name"  [(ngModel)]="lname"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon medium item-left name="lock" color="secondary"></ion-icon>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon medium item-left name="lock" color="secondary"></ion-icon>
+            <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="cpassword"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon medium item-left name="mail" color="secondary"></ion-icon>
+            <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon item-left name="phone-portrait" color="secondary"></ion-icon>
+            <ion-input type="tel" placeholder="Mobile" [(ngModel)]="mobile"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon item-left name="man" color="secondary"></ion-icon>
+            <ion-input type="text" placeholder="Age" [(ngModel)]="age"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-padding">
+          <ion-item>
+            <ion-icon item-left name="man" color="secondary"></ion-icon>
+            <ion-input type="text" placeholder="Gender" [(ngModel)]="gender"></ion-input>
+          </ion-item>
+        </ion-col >
+      </ion-row>
+      <ion-col class="ion-padding">
+        <ion-row>
+        <ion-item>
+          <ion-icon item-left name="walk" color="secondary"></ion-icon>
+          <ion-select [(ngModel)]="commute">
+              <ion-select-option value="CMWalking" checked="true">Walking</ion-select-option>
+              <ion-select-option value="CMDisability">Disability</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-row>
+      </ion-col>
+      <ion-button expand="block" share="round" color="success" (click)="verifyDetails()" >Register</ion-button>
+    </ion-list>  -->
+
+
+<ion-list >
+
+  <form [formGroup]="RegForm">
+    <ion-row>
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon item-left name="person" color="secondary"></ion-icon>
+          <ion-input type="text" placeholder="First Name" [(ngModel)]="fname" formControlName="fname" [class.invalid]="!RegForm.controls.fname.valid && RegForm.controls.fname.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.fname.valid  && RegForm.controls.fname.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Name.</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon item-left name="person" color="secondary"></ion-icon>
+          <ion-input type="text" placeholder="Last Name" [(ngModel)]="lname" formControlName="lname" [class.invalid]="!RegForm.controls.lname.valid && RegForm.controls.lname.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.lname.valid  && RegForm.controls.lname.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Name.</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon medium item-left name="lock" color="secondary"></ion-icon>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="password" formControlName="password" [class.invalid]="!RegForm.controls.password.valid && RegForm.controls.password.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.password.valid  && RegForm.controls.password.dirty">
+          <ion-label stacked class="my-label" color="danger">*Uppercase,Lowercase,Num*</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.password.valid  && RegForm.controls.password.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Password</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon medium item-left name="lock" color="secondary"></ion-icon>
+          <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="cpassword" formControlName="cpassword" [class.invalid]="!RegForm.controls.cpassword.valid && RegForm.controls.cpassword.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.cpassword.valid  && RegForm.controls.cpassword.dirty">
+          <ion-label stacked class="my-label" color="danger">*Uppercase,Lowercase,Num*</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.cpassword.valid  && RegForm.controls.cpassword.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Password</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon medium item-left name="mail" color="secondary"></ion-icon>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="email" formControlName="email" [class.invalid]="!RegForm.controls.email.valid && RegForm.controls.email.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.email.valid  && RegForm.controls.email.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Email.</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon item-left name="phone-portrait" color="secondary"></ion-icon>
+          <ion-input type="tel" placeholder="Mobile" [(ngModel)]="mobile" formControlName="mobile"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon item-left name="man" color="secondary"></ion-icon>
+          <ion-input type="text" placeholder="Age" [(ngModel)]="age" formControlName="age" [class.invalid]="!RegForm.controls.age.valid && RegForm.controls.age.dirty"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!RegForm.controls.age.valid  && RegForm.controls.age.dirty">
+          <ion-label stacked class="my-label" color="danger">Please Enter A Valid Age.</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-padding">
+        <ion-item>
+          <ion-icon item-left name="man" color="secondary"></ion-icon>
+          <ion-input type="text" placeholder="Gender" formControlName="gender"></ion-input>
+        </ion-item>
+      </ion-col >
+    </ion-row>
+      <ion-item>
+        <ion-icon item-left name="walk" color="secondary"></ion-icon>
+        <ion-select [(ngModel)]="commute" formControlName="commute" [class.invalid]="!RegForm.controls.commute.valid && RegForm.controls.commute.dirty">
+            <ion-select-option value="Walking" checked="true">Walking</ion-select-option>
+            <ion-select-option value="Disability">Disability</ion-select-option>
+        </ion-select>
+      </ion-item>
+    <ion-button expand="block" share="round" color="success" (click)="verifyDetails()" >Register</ion-button>
+    </form>
+  </ion-list>
+
+
+  </ion-content>
